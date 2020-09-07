@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup page</title>
+</head>
+<body>
+<center>
+	<form name="f1" onsubmit="return validate()" method="post" >
+		<fieldset>
+			<legend>SignUp</legend>
+			<table>
+				<tr>
+					<td>username</td>
+					<td><input type="text" name="username"></td>
+					<td><span id="namelocation" style="color:red"></span></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password"></td>
+					<td><span id="passwordlocation" style="color:red"></span></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="email" name="email"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Submit"></td>
+					<td><span id="emaillocation" style="color:red"></span></td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+	</center>
+	<script>
+function validate(){
+    var name=document.f1.username.value;
+    var passwordlength=document.f1.password.value.length;
+    var email = document.f1.email.value;
+    var status=false;
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+
+    if(name==""){
+    document.getElementById("namelocation").innerHTML=
+    " Please enter your name";
+    status=false;
+    }else{
+     status=true;
+    }
+
+
+        if(email=="")
+        {
+        status= true;
+            }
+        else
+        {
+            document.getElementById("emaillocation").innerHTML=
+            " Please enter valid email";
+         status = false;
+}
+    if(passwordlength<6){
+    document.getElementById("passwordlocation").innerHTML=
+    "  Password must be greater than 6";
+    status=false;
+    }
+      return status;
+    }
+	</script>
+</body>
+</html>
